@@ -21,32 +21,29 @@ Connected component labeling works on binary or graylevel images and different m
 •	if more than one of the neighbors have V={1}, assign one of the labels to p and make a note of the equivalences.
 After completing the scan, the equivalent label pairs are sorted into equivalence classes and a unique label is assigned to each class. As a final step, a second scan is made through the image, during which each label is replaced by the label assigned to its equivalence classes. For display, the labels might be different gray levels or colors.
 
-Task 1:
 
-You have to design an algorithm to implement connected component labelling to detect the lesion region on the skin.  You are provided with images in the folder. You will use Segmented outputs folder for this task. Where lesion has been narrowed down already. And is represented as 1. If multiple independent components are detected in an image. The biggest element will be considered as the lesion. Largest component will be the one that is occupying maximum pixels. 
+The algorihm implements from scratch (without using any built in functions) connected component labelling to detect the lesion region on the skin. The segmented output folder has been used for this task. Where lesion has been narrowed down already. And is represented as 255. If multiple independent components are detected in an image. The biggest element will be considered as the lesion. Largest component will be the one that is occupying maximum pixels. 
 
 
 K-Means Clustering 
 
-Another way to detect lesions is using K mean Clustering. K-Means clustering algorithm is an unsupervised algorithm and it is used to segment the interest area from the background. It clusters or partitions the given data into K-clusters or parts based on the K-centroids. Here you will have only two centroids, one centroid for lesion region. And one for non-lesion region. 
+Another way to detect lesions is using K mean Clustering. K-Means clustering algorithm is an unsupervised algorithm and it is used to segment the interest area from the background. It clusters or partitions the given data into K-clusters or parts based on the K-centroids. Here I have used two centroids, one centroid for lesion region. And one for non-lesion region. 
 
 Steps:
 
 1.	Choose the number of clusters K.
-2.	Select at random K points, the centroids (not necessarily from your dataset).
+2.	Select at random K points, the centroids (not necessarily from the dataset).
 3.	Assign each data point to the closest centroid → that forms K clusters.
 4.	Compute and place the new centroid of each cluster.
 5.	Reassign each data point to the new closest centroid. If any reassignment. took place, go to step 4, otherwise, the model is ready.
 
 Task 2:
 
-In this task, use the original-colored images and apply K means clustering on them to detect the lesion region. Here centroid values will be pixel values. (At no point in colored image, pixel value goes above 255, choose centroids accordingly. The Lesion region is darker spot indicating lower pixel value. Rest of the skin is lighter tone indicating higher pixel values.). Once the lesion and non-lesion has been segmented out of the image, mark lesion region cluster using 1 and rest of the image as 0 for the next task.
+Here, we use the original-colored images and apply K means clustering on them to detect the lesion region. Here centroid values are pixel values. (At no point in colored image, pixel value goes above 255. The Lesion region is darker spot indicating lower pixel value. Rest of the skin is lighter tone indicating higher pixel values.). Once the lesion and non-lesion has been segmented out of the image, lesion region cluster is marked using 1 and rest of the image as 0 for the next task.
 
 Task 3: 
 
-You are also provided with the ground truth images of already correctly identified images. Once you have detected your lesions, you will use the ground truth images and your detected lesion images to test both algorithms on all images and then find performance parameter DICE Coefficient as given in equation below.
-
-Here, True positive (TP) is the number of true positive (pixels that actually belong to lesion according to ground truth and you have also extracted it as lesion) and false positive (FP) is false positives (pixels that don’t belong to lesion according to ground truth but detected wrongly as lesions by algorithm you have implemented).
+Ground truth images are images of already correctly identified images. Once the lesions are detected, the ground truth images and the detected lesion images are used to test both algorithms on all images and then find performance parameter DICE Coefficient.
  
 
 Run Length Code: 
