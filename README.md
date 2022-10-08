@@ -1,5 +1,12 @@
 # LesionDetection using C++
 
+
+NOTE:
+
+In order to run the LesionDetection program you must have OpenCV downloaded, installed and setup on your machine. You can download it from here:
+
+https://opencv.org/releases/
+
 Introduction: 
 
 Dermoscopy or dermatoscopy refers to the examination of the skin using skin surface microscopy and is also called 'epiluminoscopy' and 'epiluminescent microscopy'. Derm(at)oscopy is mainly used to evaluate pigmented skin lesions. In experienced hands it can make it easier to diagnose melanoma.
